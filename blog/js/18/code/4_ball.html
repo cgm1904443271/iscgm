@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹跳的小球</title>
+	<style>
+		*{margin:0;padding: 0}
+		#ball{width:50px;height: 50px;background: red;border-radius: 25px;
+			position: absolute;top: 0px;left: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div id='ball'></div>
+</body>
+</html>
+<script>
+var oBall = document.getElementById('ball')
+var xspeed = 10
+var yspeed = 10
+//窗口的宽度和高度
+var width = parseInt(document.documentElement.clientWidth)
+var height = parseInt(document.documentElement.clientHeight)
+var timer = setInterval(function(){
+	//获取小球的坐标
+	x = oBall.offsetLeft
+	y = oBall.offsetTop
+	console.log(x,typeof x)
+	//y方向的边界判断
+	if (y + oBall.offsetHeight >= height || y <0) {
+		yspeed = -yspeed
+
+	}
+
+	//x方向判断边界
+	if (x + oBall.offsetWidth >= width || x<0) {
+		xspeed = -xspeed
+	}
+
+	oBall.style.top = y + yspeed + 'px'
+	oBall.style.left = x + xspeed + 'px'
+},20)
+</script>

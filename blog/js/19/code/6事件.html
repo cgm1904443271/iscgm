@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件</title>
+	<style>
+		div{width:300px;height:300px;background: red}
+	</style>
+</head>
+<body>
+	<div></div>
+	<button>点击</button>
+</body>
+</html>
+<script src='jquery1.11.1/jquery.min.js'></script>
+<script>
+	// $('button').on('click',function(){
+	// 	$('body').append("<button>按钮</button>")
+	// })
+	// $('button').on('click',function(){
+	// 	console.log("打一下")
+	// })
+	// $('button').on('click',function(){
+	// 	console.log("亲一下")
+	// })
+	// 用代码触发事件
+	// $('button').trigger('click')
+	// 事件绑定: 再父标签上进行委托
+	$('body').delegate('button','click',function(){
+		$('body').append("<button>按钮</button>")
+		//this是js对象，代表当前标签，不能调用jquery方法
+		this.innerText = ''+ Math.random()
+		//js=>jQuery
+		// $(this).css('background','red')
+		// jQuery=>js
+		console.log($("button")[0])
+		// console.log(this)
+	})
+
+	$("div").hover(function(){
+		//鼠标移动到div上
+		$(this).css('background','blue')
+	},function(){
+		//鼠标移出
+		$(this).css('background','purple')
+	})
+</script>

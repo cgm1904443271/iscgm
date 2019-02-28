@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡</title>
+	<style>
+		*{margin: 0;padding: 0}
+		-body{height:2000px;width:2000px;}
+		#d1{width:100px; height: 100px;border-radius: 50px;background: red;
+			position:absolute;top:0px;left:0px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id='d1'>
+		
+	</div>
+</body>
+</html>
+<script>
+oD1 = document.getElementById('d1')
+document.onmousemove = function(e){
+	var ev = e || event
+	//client 以窗口的可视区域的左上角为原点，不受窗口滚动影响
+	 console.log(ev.clientX,ev.clientY)
+	//page 受窗口滚动影响
+	// console.log(ev.pageX,ev.pageY)
+	//screen 以屏幕左上角为原点
+	// console.log(ev.screenX,ev.screenY)
+	
+	oD1.style.top = ev.clientY - oD1.offsetHeight/2 + 'px'
+	oD1.style.left = ev.clientX - oD1.offsetWidth/2 +'px'
+	
+}
+//屏蔽右键菜单
+document.oncontextmenu = function ()
+{
+    return false;	
+}
+</script>

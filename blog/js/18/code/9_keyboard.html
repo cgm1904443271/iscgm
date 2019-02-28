@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件</title>
+	<style>
+		div{width:100px;height: 100px;background: red;border-radius: 50px;}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>
+<script>
+oDiv = document.getElementsByTagName('div')[0]
+document.onkeydown = function(e){
+	var ev = e||event
+	console.log(ev.keyCode)
+	console.log(ev.altKey)  //alt
+	console.log(ev.ctrlKey)  //ctrol
+}
+</script>

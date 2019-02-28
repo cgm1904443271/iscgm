@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 字符串类型转换
+		// 任何类型和(非数值)字符串相加，都要转换为字符串(隐式类型转换)
+		// console.log(5 + 'k')
+		// console.log(5.2 + 'k')
+		// console.log(true + 'k')
+		// console.log(false + 'k')
+		
+		// 显示类型转换（自己手动转换）
+		// 把字符串转换为其他类型
+		// parseInt只转开头的数值部分，如果不以数值开头无法转换
+		console.log(typeof parseInt('10k'), parseInt('10k'))
+		console.log(typeof parseInt('10'),parseInt('10'))
+		console.log(typeof parseInt("k10"),parseInt("k10"))
+		console.log(typeof parseFloat("10.2k"),parseFloat("10.2k"))
+
+		//toString
+		a = 10
+		console.log(typeof a.toString(2),a.toString(2))
+		console.log(typeof a.toString(3),a.toString(3))
+		console.log(typeof a.toString(16),a.toString(16))
+	</script>
+
+</body>
+</html>

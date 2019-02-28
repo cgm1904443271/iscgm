@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{height: 300px;background: red}
+		.d1{background: yellow}
+	</style>
+</head>
+<body>
+	<div index='100' class='d1'><h1>world</h1></div>
+</body>
+</html>
+<script src='jQuery1.11.1/jquery.min.js'></script>
+<script>
+	//prop 获取标签固有属性
+// console.log($('div').prop('index'))
+// console.log($('div').attr('index'))
+// $('div').removeClass('d1')   //.addClass('d1')
+// $('div').toggleClass('d1')
+// alert($('div').text())
+alert($('div').html())
+</script>

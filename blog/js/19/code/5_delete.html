@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>梨</li>
+		<li>西红柿</li>
+		<li>菠萝</li>
+		<p>苹果</p>
+	</ul>
+</body>
+<script src='jquery1.11.1/jquery.min.js'></script>
+</html>
+<script>
+	//删除当前选中标签
+	// $("li").remove()
+	// $('ul').empty()
+	//查找
+	// console.log($("ul").children())
+	// $("ul").children().eq(1).css("background",'red')
+	$("p").siblings().css("font-size",'3em')
+</script>

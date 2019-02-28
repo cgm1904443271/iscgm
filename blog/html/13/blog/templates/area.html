@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市县</title>
+    <style>
+        *{margin:0}
+        select{width:150px;}
+        div{float: left;margin-left:10px;}
+    </style>
+</head>
+<body>
+<div>
+    <h2>省</h2>
+    <select name="province" id="province">
+        <option value=""></option>
+    </select>
+</div>
+<div>
+    <h2>市</h2>
+    <select name="province" id="city">
+        <option value=""></option>
+    </select>
+</div>
+<div>
+    <h2>县</h2>
+    <select name="province" id="xian">
+        <option value=""></option>
+    </select>
+</div>
+
+</body>
+</html>
+<script>
+    oProvince = document.getElementById('province')
+    //ajax请求数据 get
+    //1 创建ajax对象
+    var xhr = new XMLHttpRequest()
+
+
+     //4 监听服务器，获取返回数据
+    xhr.onreadystatechange = function(){
+        if (4==xhr.readyState && 200==xhr.status){
+            console.log("请求完成")
+            console.log(xhr.responseText)  //服务器返回的数据
+            data = JSON.parse(xhr.responseText)
+            console.log(data)
+            for (var i=0;i<data.length;i++){
+                elem = document.createElement('option')
+                elem.innerText = data[i].name
+                elem.value = data[i].code
+                oProvince.appendChild(elem)
+            }
+        }
+
+    }
+
+    //2 创建http请求
+    xhr.open('get','/province/0')
+
+
+    //3 发送请求
+    xhr.send(null)
+
+    console.log("发送请求")
+
+
+</script>

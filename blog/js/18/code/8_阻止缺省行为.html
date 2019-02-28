@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="http://www.baidu.com" -onclick="return false">百度</a>
+</body>
+</html>
+<script>
+oA = document.getElementsByTagName('a')[0]
+oA.onclick = function(e){
+	var ev = e || event
+	//阻止缺省跳转
+	ev.preventDefault()
+	// return false
+	res = confirm("你确定跳转到度娘吗?")
+	if (res) {
+		//再当前窗口跳转
+		// window.location.href = "http://www.sohu.com" //this.href
+		// 在新窗口跳转
+		window.open("http://www.baidu.com",'_blank')
+	}
+}
+</script>

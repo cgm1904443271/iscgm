@@ -1,0 +1,33 @@
+</html>
+	<head>
+		<meta charset="utf-8" />
+		<title>短信验证码</title>
+	</head>
+	
+	<body>
+	    <!-- 点击“获取验证码”按钮，后显示“30秒后重新发送”，秒数递减，然后将“获取验证码”按钮置为不可用状态，达到0秒后重新置为可用-->
+		<input type="text" placeholder="请输入验证码">
+		<input type="button" value="获取验证码" id="btn" />
+	</body>
+</html>
+<script>
+var oBtn = document.getElementById('btn');
+
+var time = 30;
+var timer;
+oBtn.onclick = function(){
+    this.disabled = true;//按钮不可用
+    var _this = this;//设置一个局部变量代表按钮
+    timer = setInterval( function(){
+    	time--;
+	    _this.value = ''+time+'秒后重新发送';
+	    if (time<1) {
+            clearInterval(timer);
+            _this.disabled = false;
+            _this.value = '获取验证码';
+            time = 30;
+	    }
+    },1000);
+}
+
+</script>

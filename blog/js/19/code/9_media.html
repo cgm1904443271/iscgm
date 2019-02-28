@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name='viewport' content="width=device-width,initial-scalse=1">
+	<style type="text/css">
+		/*移动端*/
+		@media screen and (max-width:768px) {
+			div{width: 480px;height: 600px;background: red;}
+		}
+		/*平板*/
+		@media screen and (min-width: 768px) and (max-width: 992px){
+			div{background: yellow;width:800px;height: 500px}
+		}
+		/*pc端*/
+		@media screen and (min-width: 992px) and (max-width: 1200px) {
+			div{background: pink;width:1000px;height: 500px}
+		}
+		/*超大屏幕*/
+		@media screen and (min-width: 1200px) {
+			div{background: blue;width:1000px;height: 500px}
+		}
+	</style>
+
+</head>
+<body>
+	<div></div>
+</body>
+</html>

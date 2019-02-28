@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>增加节点</title>
+	<style>
+		div{height: 200px;background: red}
+	</style>
+</head>
+<body>
+	<select name="" id="">
+		<option value=""></option>
+		<option value="">深圳</option>
+	</select>
+	<select name="" id="">
+	</select>
+	<button>添加</button>
+	<button>删除</button>
+</body>
+</html>
+<script>
+oBtn = document.getElementsByTagName('button')[0]
+oBtn1 = document.getElementsByTagName('button')[1]
+oSelect = document.getElementsByTagName('select')[0]
+oSelect1 = document.getElementsByTagName('select')[1]
+oBtn.onclick = function(){
+	//1 创建标签
+	elem = document.createElement('option')
+	//修改属性和样式
+	elem.value='1'
+	elem.innerText = '上海'
+
+	//2插入到父节点中
+	oSelect.appendChild(elem) //尾部插入
+	// oSelect.insertBefore(elem,oSelect.firstElementChild || oSelect.firstChild)
+}
+//选中第一个select时，会触发change事件
+oSelect.onchange = function(){
+	address = ['北京','广东','广西','安徽','福建']
+	for (var i = 0; i < address.length; i++) {
+		elem = document.createElement('option')
+	   elem.innerText = address[i]
+	   oSelect1.appendChild(elem)
+	}
+}
+
+//删除
+oBtn1.onclick = function(){
+	oBody = document.getElementsByTagName('body')[0]
+	// oBody.removeChild(oSelect1)  //删除指定子标签
+	oBody.innerHTML = ''
+}
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一次性定时器</title>
+	<style>
+		*{margin:0;}
+		div{height: 600px;background: red;}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>
+<script>
+oDiv = document.getElementsByTagName('div')[0]
+
+// function dosomething(){
+// 	oDiv.style.display = 'none'
+// 	clearTimeout(timer)
+// 	timer = null;
+// }
+
+var timer = setTimeout(function(){
+	oDiv.style.display = 'none'
+	clearTimeout(timer)
+	timer = null;
+},2000)
+
+</script>

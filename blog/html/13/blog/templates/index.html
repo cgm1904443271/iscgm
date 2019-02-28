@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        *{margin:0;padding: 0}
+        a{text-decoration: none}
+        #header{height: 100px;background:grey}
+        #header div{
+            float: right;}
+        #header div a{margin-left: 20px;}
+    </style>
+</head>
+<body>
+<div id="header">
+{% if id %}
+
+    <div>
+        <span>用户名：{{ username }}</span> <a href="/logout">退出登录</a>
+    </div>
+
+{% else %}
+    <div>
+        <a href="/login">登录</a> <a href="/register">注册</a>
+    </div>
+
+{% endif %}
+</div>
+</body>
+</html>

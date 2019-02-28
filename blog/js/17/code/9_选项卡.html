@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+		#header{width: 500px;-height: 100px;-background: red}
+		#header button{width: 150px;height: 60px;margin-right:10px;}
+		#content{width: 500px;}
+		#content div{width: 500px;height: 300px;display: none}
+		#content .current{display: block}
+		#header .active{background: red}
+	</style>
+</head>
+<body>
+	<div id='header'>
+		<button class='active'></button>
+		<button></button>
+		<button></button>
+	</div>
+	<div id='content'>
+		<div class='current' style="background: green"></div>
+		<div style="background: red"></div>
+		<div style="background: blue"></div>
+	</div>
+</body>
+</html>
+<script>
+oHeader = document.getElementById('header')
+aBtn = oHeader.getElementsByTagName('button')
+
+oContent = document.getElementById('content')
+aDiv = oContent.getElementsByTagName('div')
+
+for (var i = 0; i < aBtn.length; i++) {
+	aBtn[i].index = i //记录按钮的下标
+	//给按钮添加事件
+	aBtn[i].onclick = function(){
+		for (var j = 0; j < aBtn.length; j++) {
+			aBtn[j].className = ''
+			aDiv[j].className = ''
+		}
+		//给当前按钮添加类名active
+		this.className = 'active'
+		//给div添加类名
+		index = this.index
+		aDiv[index].className = 'current'
+
+	}
+}
+
+</script>

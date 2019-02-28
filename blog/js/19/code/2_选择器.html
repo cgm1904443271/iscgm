@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器</title>
+	<script src='jquery1.11.1/jquery.min.js'></script>
+</head>
+
+<body>
+	<div>俄罗斯：谁骂我我打谁</div>
+	<p id='p1'>中国：谁打我我骂谁</p>
+	<span class='c1'>日本：米国让我打谁我就打谁</span>
+	<div class='d1'>
+		米国：我想打谁就打谁
+		<div>
+			英国：米国打谁我打谁
+		</div>
+		<div>
+			韩国：谁打我我就和米国一起演习
+			<div class='c2'>
+				朝鲜：谁打我我就打韩国
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+//id选择器
+// $('#p1').css('color','pink')
+//类选择器
+// $(".c1").css({'font-size':'60px','color':'red'})
+//标签选择器
+// $('div').css('background','red')
+// 组合选择器
+// $("p,span").css("font-size",'3em')
+// 层级选择器
+// $(".d1 .c2").css("background",'red')
+$(".d1 > div").css({"border":"3px solid red",'margin':"20px"})
+</script>

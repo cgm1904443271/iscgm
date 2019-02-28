@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset='utf-8'>
+	<style type="text/css">
+		#digital{height: 200px;background: pink;color:yellow;font-size: 60px;line-height: 200px;text-align: center;}
+		input[type='button']{width: 100px;height: 50px;margin-left: 40px;}
+		.father{text-align: center;margin-top:20px;}
+	</style>
+</head>
+<body>
+	<div id='digital'>00:00.000</div>
+	<div class='father'>
+		<input type="button" value="开始" id='start'>
+		<input type="button" value="暂停" id='pause'>
+		<input type="button" value="重置" id='reset'>
+	</div>
+</body>
+<script type="text/javascript">
+// var time1 = new Date();
+// time1 = time1.getTime();
+// var timer = setInterval(function(){
+//    var time2 = new Date();
+//    time2  = time2.getTime();
+//    console.log(time2 - time1);
+//    clearInterval(timer);
+// },30);
+var oDigital = document.getElementById('digital');
+var aButton = document.getElementsByTagName('input');
+var timer = null;
+var iNum = 0;//保存时间,毫秒数
+var iRemained;//保存上次剩余秒数
+var bPause = false;//是否按了暂停按钮
+
+//开始
+aButton[0].onclick = function(){
+	//如果定时器已经存在，不再实例化，直接返回
+	if (timer) {
+		return;
+	}
+	var iStartTime = new Date();
+	iStartTime = iStartTime.getTime();//开始时间
+    timer = setInterval(function(){
+    	//当前时间
+    	var iCurrentTime = new Date();
+    	iCurrentTime = iCurrentTime.getTime();
+		iNum = parseInt(iCurrentTime - iStartTime);//毫秒数
+
+		//如果按暂停按钮，现在的差值应该在加上原来的毫秒数
+    	if (bPause) {
+    		iNum += iRemained;
+    	}
+    	
+    	var iMinute = parseInt(iNum / (60*1000));
+    	var iSecond = parseInt(iNum / 1000) % 60;
+    	var iMicroTime = iNum % 1000;
+    	oDigital.innerText = '' + zeroFill(iMinute,true) + ':'+zeroFill(iSecond,true) + "."+zeroFill(iMicroTime,false);
+    },10);
+}
+
+//重置
+aButton[2].onclick = function(){
+	clearInterval(timer);
+	timer = null;
+	bPause = false;
+	iRemained = 0;
+	oDigital.innerText = '00:00.000';//清空显示
+}
+
+//暂停
+aButton[1].onclick = function(){
+	clearInterval(timer);
+	timer = null;
+
+	//按下暂停按钮
+	bPause = true;
+
+	iRemained = iNum;//保存现有的毫秒数
+}
+
+function zeroFill(num,flag)
+{
+	//flag为true，补一个0
+	if (flag) {
+		return num < 10 ? ('0' + num) : (''+num);
+	}
+
+	//补2零
+	if (num<10) {
+		return '00' + num
+	} else if(num<100) {
+		return '0' + num;
+	} else {
+		return ''+ num;
+	}
+}
+</script>
+</html>

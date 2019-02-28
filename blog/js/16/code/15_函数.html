@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//调用可以在定义之前
+// console.log(demo(1))
+// //命名函数
+// function demo(a,b=3){
+// 	return a + b;
+// }
+// console.log(demo(2,3))
+// console.log(demo(2,3,4,5,6,1))
+// console.log(demo())
+
+// var pf = function(){
+// 	console.log("匿名函数")
+// }
+// pf()
+// 
+// 函数参数
+function test(a){
+	for (var i = 0; i < arguments.length; i++) {
+		console.log(arguments[i])
+	}
+}
+test()
+test(2)
+test(2,3,4)
+</script>

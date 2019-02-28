@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.c1{height200px;background: yellow}
+		.c2{background: #999}
+	</style>
+</head>
+<body>
+	<div id='d1' class='c1'><h1>元宵节</h1></div>
+	<input type="text" >
+</body>
+</html>
+<script>
+oDiv = document.getElementById('d1')
+//修改行内样式
+oDiv.style.fontSize = '60px'
+oDiv.style.color = 'red'
+
+//修改innerText
+// oDiv.innerText = "<h1>去年元宵夜</h1>"
+//修改innerHTML
+// oDiv.innerHTML = "<h1>花市灯如昼</h1><span>hello</span>"
+// 修改标签属性
+oDiv.className = 'c2'
+oInput = document.getElementsByTagName('input')[0]
+oInput.value = "1111"
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+</head>
+<body>
+	<form action="http://www.baidu.com" method="get" name='f1'>
+		用户名：<input type="text" name='username'> <span></span><br>
+		密码：<input type="password" name='password'><span></span> <br>
+		<input type="submit" value="登录" name='btn'>
+	</form>
+</body>
+</html>
+<script>
+// oForm = document.forms[0]
+oForm = document.f1
+console.log(oForm)
+
+oForm.password.onfocus = function(){
+	this.value=''
+}
+
+//获取表单中表单项
+oForm.btn.onclick = function(e){
+	var ev = e || event
+	ev.preventDefault()
+
+	//数据验证
+	var username = oForm.username.value
+	var password = oForm.password.value
+	// console.log(username,password)
+	if (/^\d+$/.test(password)) {
+		oForm.password.nextElementSibling.innerText = "密码不能是纯数字"
+		oForm.password.focus()
+		return
+	} else {
+		oForm.password.nextElementSibling.innerText  = ""
+		
+	}
+
+	//手动提交
+	oForm.submit()
+
+}
+</script>

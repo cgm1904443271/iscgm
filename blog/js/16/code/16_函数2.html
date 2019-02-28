@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//值传递
+// function swap(a,b){
+// 	tmp = a;
+// 	a = b;
+// 	b = tmp;
+// }
+// var a = 1,b=2;
+// swap(a,b)
+// console.log(a,b)
+//引用传递
+// function update(a){
+// 	a[0] = 100
+// }
+// var b = [1,2,3]
+// update(b)
+// console.log(b)
+
+//封闭空间 函数定义即调用
+// res = (function(a,b){
+// 		  	console.log(a,b)
+// 		  	return a+b
+// 	}
+// )(3,4)
+// console.log(res)
+//内部函数
+//
+// function outer(){
+// 	inner()
+// 	//不能再外部函数外面直接调用内部函数
+// 	function inner(){
+// 		console.log("内部函数")
+// 	}
+// }
+// outer()
+// 递归函数
+// function fac(n){
+// 	if (n <=1){
+// 		return 1;
+// 	}
+// 	return n * fac(n-1)
+// }
+// console.log(fac(5))
+// 再函数外面定义的变量叫全局变量
+// var a = 1, b= 2;
+// // 作用域
+// function test(){
+// 	//局部变量和全局变量重名，局部优先
+// 	console.log(a)
+// 	var a=10 // 再函数内部定义变量叫局部变量，定义局部变量最好加var
+// 	console.log(a)
+// 	b += 2
+// 	console.log(b)
+// }
+// test()
+// console.log(a,b)
+
+var a = 1, b= 2;
+// 作用域
+function test(){
+	console.log(a)
+	a=10 // 全局变量，作用域从定义开始到文件结束
+	console.log(a)
+	b = 1
+	console.log(b)
+}
+test()
+console.log(a,b)
+</script>

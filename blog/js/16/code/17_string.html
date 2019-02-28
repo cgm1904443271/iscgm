@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串函数</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+s1 = 'hello'
+s2 = 'world'
+//字符串拼接
+s3 = s1 + s2
+// console.log(s3)
+s1.concat(s2) //返回一个新字符串,s1本身不发生变化
+// console.log(s1)
+// 子串检索，返回子串在原串中的下标,如果子串不存在，返回-1
+// console.log(s1.indexOf('ll'))
+s1 = "hellollo"
+// console.log(s1.lastIndexOf('ll'))
+console.log(s1.lastIndexOf('lll'))
+//切片,包头不包尾
+console.log(s1.slice(0,5))
+
+//字符串分割
+s3 = "hello world hai"
+res = s3.split(" ")
+console.log(res)
+</script>

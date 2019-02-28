@@ -1,0 +1,2 @@
+sudo service smbd restart  重启samb(5)
+

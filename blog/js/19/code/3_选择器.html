@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery1.11.1/jquery.min.js'></script>
+</head>
+<body>
+	<script>
+     $(function(){
+     	// $("li:first").css("font-size",'60px')
+     	// $("li:even").css('color','yellow')
+     	// $("li:eq(2)").css('background','red')
+     	// 内容选择器
+     	// $("li:contains('星')").css("font-size",'40px')
+     	// $("[type]").css('background','red')
+     	 // $("[type=text]").css('background','red')
+     	 // 如果ul的第一个孩子是li则选中
+     	 // $("ul li:first-child").css("color","tomato")
+     	 // $(":submit").css("width","100px")
+     	 $(":checked").prop('checked',false)
+     })
+	</script>
+	<ul>
+		<span></span>
+		<li>流浪地球</li>
+		<li>疯狂的外星人</li>
+		<li>飞驰人生</li>
+		<li>神探蒲松龄</li>
+	</ul>
+	<input type="text" name='username'>
+	<input type="submit"><br>
+	<input type="checkbox" value='1'>11
+	<input type="checkbox" value='2' checked>22
+	<input type="checkbox" value='1' checked>33
+</body>
+</html>

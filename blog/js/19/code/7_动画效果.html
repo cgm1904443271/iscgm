@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div{height: 300px;background: red;position: absolute;top:50;left: 0;width:600px;}
+	</style>
+</head>
+<body>
+	<button>show/hidden</button>
+	<button>slide</button>
+	<button>fade</button>
+	<button>自定义</button>
+	<div></div>
+</body>
+</html>
+<script src='jQuery1.11.1/jquery.min.js'></script>
+<script>
+//显示	
+// $('button').eq(0).click(function(){
+// 	if ($('div')[0].style.display == 'none') {
+// 		$('div').show()
+// 	} else {
+// 		$('div').hide(1200,function(){
+// 		console.log('end')
+
+// 	})
+// 	}
+	
+// })
+
+//slide
+// $('button').eq(1).click(function(){
+// 	$('div').slideToggle(300)
+// })
+
+// $('button').eq(2).click(function(){
+// 	$('div').fadeToggle(1000)
+// })
+
+$('button').eq(3).click(function(){
+	$('div').animate({'left':'+500px','opacity':'0'},1000)
+})
+</script>

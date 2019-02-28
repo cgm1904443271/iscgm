@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡</title>
+	<style>
+		#d1{width:400px; height: 400px;padding: 50px;background: red}
+		#d11{width:300px; height: 300px;padding: 50px;background: yellow}
+		#d111{width:200px; height: 200px;padding: 50px;background: blue}
+	</style>
+</head>
+<body>
+	<div id='d1'>
+		<div id='d11'>
+			<div id='d111'></div>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+oD1 = document.getElementById('d1')
+oD11 = document.getElementById('d11')
+oD111 = document.getElementById('d111')
+//下面的写法无法做到一个事件多个处理函数
+// oD111.onclick = function(e){
+// 	var ev = e || event
+// 	console.log("别睡觉")
+// }
+
+// oD111.onclick = function(e){
+// 	var ev = e || event
+// 	console.log("我不困")
+// }
+
+// oD111.addEventListener('click',function(e){
+// 	console.log("别睡觉")
+// },false)
+// oD111.addEventListener('click',function(e){
+// 	console.log("我不困")
+// },false)
+
+//自定义兼容两种浏览器的事件绑定函数
+function bindEvent1(obj,eventnName,fn)
+{
+    if (obj.addEventListener) {
+    	obj.addEventListener(eventnName,fn,false);
+    } else {
+     obj.attachEvent('on'+eventnName,fn);
+    }
+}
+
+bindEvent1(oD111,'click',function(e){
+	alert("别睡觉")
+})
+bindEvent1(oD111,'click',function(e){
+	alert("我不困")
+})
+</script>

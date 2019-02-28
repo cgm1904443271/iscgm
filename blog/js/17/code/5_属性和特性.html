@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{height: 100px;background: red}
+	</style>
+</head>
+<body>
+	<div index='1'></div>
+</body>
+</html>
+<script>
+oDiv = document.getElementsByTagName('div')[0]
+console.log(oDiv.index)
+//获取特性值
+console.log(oDiv.getAttribute('index'))
+//设置特性值
+oDiv.setAttribute('index',10)
+
+//动态添加属性
+oDiv.ok = 'hello'
+console.log(oDiv.ok)
+</script>

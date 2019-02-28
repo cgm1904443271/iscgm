@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+</head>
+<body>
+	<form action="http://www.baidu.com" method="get">
+		用户名：<input type="text" name="username" maxlength='5' placeholder="请输入用户名"><br>
+		密码：<input type="password" name='password' placeholder="请输入密码"> <br>
+		性别：<input type="radio" name='sex' value='1' id='male'><label for='male'>男</label>  <input type="radio" name='sex' value='0' checked id='female'> <label for='female'>女</label>  <br>
+		爱好：<input type="checkbox" name='hobby' value='1' checked>玩游戏
+		<input type="checkbox" name='hobby' value='2'>美食
+		<input type="checkbox" name='hobby' value='3' checked>睡觉
+		<input type="checkbox" name='hobby' value='4'>抽烟
+		<input type="checkbox" name='hobby' value='5'>喝酒
+		<input type="checkbox" name='hobby' value='5'>烫头 <br>
+		头像： <input type="file" name='portrait'> <br>
+		<input type="hidden" name='userid' value='1011'>
+		住址：
+		<select name="province" size='5' multiple>
+			<option value="1">北京</option>
+			<option value="2" selected>深圳</option>
+			<option value="3">上海</option>
+			<option value="4">天津</option>
+			<option value="5">重庆</option>
+			<option >雄安</option>
+		</select> <br>
+		简介：<textarea name="memo" cols="50" rows="10">
+		</textarea> <br>
+		按钮：<input type="button" value='点一下'>
+		<input type="submit" value='登录'>
+		<input type="reset" value='重置'>
+	</form>
+</body>
+</html>

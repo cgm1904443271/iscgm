@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东</title>
+	<style>
+		/*公共部分*/
+		*{margin: 0px;padding: 0px;}
+		a{text-decoration: none;}
+		 .clear:after{
+				display:block;
+				content:'';
+				zoom:1;
+				clear:both;
+		}
+
+		/*导航栏*/
+		header .top{height: 30px;background: #e3e4e5;font-size: 12px;color:#999;}
+		header .top .left{float:left;margin-left:245px;line-height: 30px;}
+		header .top .right{float:right;list-style: none;}
+		header .top .right li {float :left;margin-top: 7px;}
+		header .top .right .space{width:1px;height: 10px;background: #cccccc;margin-left: 13px;margin-right: 13px;margin-top:11px;}
+		header .top .right li:first-child{margin-right: 10px;}
+		header .top .right a:hover{color:#f10215;}
+		header .top .right .register{color:#f10215;}
+
+		/*logo*/
+		.logo{width: 190px;height: 170px;position: absolute;top: 0;left:40px;background: url('images/logo.v2.png') no-repeat white;z-index:100;}
+		.logo a{display: block;width: 190px;height: 170px;text-indent: -999em;overflow: hidden;}
+
+		/*搜索栏*/
+		header .middle{height: 100px;background: yellow;position: relative}
+		header .middle form{width: 550px;-height:35px;background: blue;position:absolute;
+			top:25px;
+			left:360px;
+		}
+
+		header .middle form input[type='text']{width: 496px;height: 31px;display: block;float: left;}
+		header .middle form input[type='button']{width: 50px;height:35px;background:url('images/search.png') no-repeat center center #f10215;display: block;float: left;border: none;}
+		header .middle  span{width: 20px;height: 20px;background: url('images/sprite-photo-search.png') no-repeat;display: block;overflow: hidden;
+			position:absolute;
+			top:35px;
+			left:826px
+	}
+
+		header .middle .cart{width: 180px;height: 35px;background: red;
+			position:absolute;top:25px;left:945px;
+		}
+		header .middle .ewm{width: 65px;height: 65px;background: tomato;position:absolute;top:0;right: 33px;}
+		header .middle .hots{width: 300px;height: 20px;background:pink;position:absolute;top:70px;left:360px;}
+
+		/*菜单栏*/
+		header .bottom{height: 40px;background: blue}
+	</style>
+</head>
+<body>
+	<header>
+		<!-- 导航栏 -->
+		<div class='top  clear'>
+			<div class='left'>
+				<img src="bj.jpg" alt="">
+				<span>北京</span>
+			</div>
+			<ul class="right">
+				<li>你好，请先登录</li>
+				<li class='register'>免费注册</li>
+				<li class='space'></li>
+				<li><a href="">我的订单</a></li>
+				<li class='space'></li>
+				<li><a href="">我的京东<img src="images/arrow.png" alt=""></a></li>
+				<li class='space'></li>
+				<li><a href="">京东会员</a></li>
+			</ul>
+			<div class='logo'>
+				<a href="http://www.jd.com">jd</a>
+			</div>
+		</div>
+		<!-- 搜索栏 -->
+		<div class='middle'>
+			<form action="">
+				<input type="text"><input type="button">
+			</form>
+			<span class='camera'></span>
+			<div class='cart'></div>
+			<div class='ewm'></div>
+			<div class='hots'></div>
+		</div>
+
+		<!-- 菜单栏 -->
+		<div class='bottom'></div>
+	</header>
+</body>
+</html>

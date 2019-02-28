@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>层级选择器</title>
+	<style>
+		.c1{
+			height: 100px;
+			margin-top: 2px;
+			background: red;
+		}
+		.c11{
+			height: 50px;
+			background: yellow;
+			margin:20px;
+
+		}
+		/*层级选择器*/
+		/*div  .c12{
+			height:60px;
+			background: gold;
+		}*/
+		/*直接孩子选择器*/
+		#parent>.c1{
+			background: black;
+		}
+	</style>
+</head>
+<body>
+	<div id='parent'>
+		<div class='c1'>
+			<div class="c11">
+
+			</div>
+			<div class='c1' style="height: 30px;-background: blue;"></div>
+		</div>
+		<div class='c1'>
+			<div class='c12'>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

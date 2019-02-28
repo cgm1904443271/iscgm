@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//1 定义对象
+// dog = new Object;
+// console.log(dog,typeof dog)
+// dog.name = '泰迪'
+// dog.bark = function(){
+// 	console.log("汪汪汪")
+// }
+// dog.bark()
+// 2 工厂模式
+// function createDog(name,age){
+// 	dog = new Object
+// 	dog.name = name
+// 	dog.age = age ;
+// 	dog.bite = function(){
+// 		console.log("别跑，爷咬不死你")
+// 	}
+// 	return dog
+// }
+// d1 = createDog('tom',5)
+// d1.bite()
+// 3.构造函数
+// function Dog(name,age){
+// 	//this代表当前对象
+// 	this.name = name
+// 	this.age = age
+// 	this.bark = function(){
+// 		console.log("一只大黄狗，坐在大门口")
+// 	}
+// }
+// d1 = new Dog('丁丁',4)
+// d1.bark()
+// 4 原型构造
+function Dog(name,age){
+	this.name = name
+	this.age = age
+}
+//定义类的方法
+Dog.prototype.bark = function() {
+	console.log("爱吃大骨头")
+};
+d1 = new Dog('哈士奇',3)
+d1.bark()
+d2 = new Dog("阿拉斯加",5)
+d2.bark()
+</script>

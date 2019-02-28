@@ -1,0 +1,667 @@
+Xshell 5 (Build 1044)
+Copyright (c) 2002-2016 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[c:\~]$ 
+
+Connecting to 10.20.158.89:22...
+Could not connect to '10.20.158.89' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[c:\~]$ 
+
+Connecting to 10.20.158.110:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.10.0-28-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+284 packages can be updated.
+22 updates are security updates.
+
+New release '18.04.1 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Tue Jan 22 13:53:16 2019 from 10.20.158.69
+apple@ubuntu:~$ 
+apple@ubuntu:~$ mysql -uroot -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5
+Server version: 5.7.24-0ubuntu0.16.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use homework;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_homework |
++--------------------+
+| course             |
+| grade              |
+| rank               |
+| student            |
+| teacher            |
+| user               |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> select sname,ssex ,sclass from student;
+ERROR 1054 (42S22): Unknown column 'sclass' in 'field list'
+mysql> select sname,ssex ,class from student;
++--------+------+-------+
+| sname  | ssex | class |
++--------+------+-------+
+| 李军   | 男   | 95033 |
+| 陆君   | 男   | 95031 |
+| 匡明   | 男   | 95031 |
+| 王丽   | 女   | 95033 |
+| 曾华   | 男   | 95033 |
+| 王芳   | 女   | 95031 |
++--------+------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select distinct depart from teacher;
++-----------------+
+| depart          |
++-----------------+
+| 计算机系        |
+| 电子工程系      |
++-----------------+
+2 rows in set (0.01 sec)
+
+mysql> select depart from teacher;
++-----------------+
+| depart          |
++-----------------+
+| 计算机系        |
+| 计算机系        |
+| 电子工程系      |
+| 电子工程系      |
++-----------------+
+4 rows in set (0.00 sec)
+
+mysql> select distinct depart from teacher;
++-----------------+
+| depart          |
++-----------------+
+| 计算机系        |
+| 电子工程系      |
++-----------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from student;
++-----+--------+------+---------------------+-------+
+| sno | sname  | ssex | sbirthday           | class |
++-----+--------+------+---------------------+-------+
+| 101 | 李军   | 男   | 1976-02-20 00:00:00 | 95033 |
+| 103 | 陆君   | 男   | 1974-06-03 00:00:00 | 95031 |
+| 105 | 匡明   | 男   | 1975-10-02 00:00:00 | 95031 |
+| 107 | 王丽   | 女   | 1976-01-23 00:00:00 | 95033 |
+| 108 | 曾华   | 男   | 1977-09-01 00:00:00 | 95033 |
+| 109 | 王芳   | 女   | 1975-02-10 00:00:00 | 95031 |
++-----+--------+------+---------------------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from grade where degree between 60 and 80;
++-----+-------+--------+
+| sno | cno   | degree |
++-----+-------+--------+
+| 101 | 3-105 |     64 |
+| 105 | 3-245 |     75 |
+| 107 | 6-106 |     79 |
+| 108 | 3-105 |     78 |
+| 109 | 3-105 |     76 |
+| 109 | 3-245 |     68 |
++-----+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from grade where degree in (85,86,88);
++-----+-------+--------+
+| sno | cno   | degree |
++-----+-------+--------+
+| 101 | 6-166 |     85 |
+| 103 | 3-245 |     86 |
+| 105 | 3-105 |     88 |
++-----+-------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from grade where degree = 85 or degree=86 or degree=88;
++-----+-------+--------+
+| sno | cno   | degree |
++-----+-------+--------+
+| 101 | 6-166 |     85 |
+| 103 | 3-245 |     86 |
+| 105 | 3-105 |     88 |
++-----+-------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from studnet where class='95031' or ssex='女';
+ERROR 1146 (42S02): Table 'homework.studnet' doesn't exist
+mysql> select * from student where class='95031' or ssex='女';
++-----+--------+------+---------------------+-------+
+| sno | sname  | ssex | sbirthday           | class |
++-----+--------+------+---------------------+-------+
+| 103 | 陆君   | 男   | 1974-06-03 00:00:00 | 95031 |
+| 105 | 匡明   | 男   | 1975-10-02 00:00:00 | 95031 |
+| 107 | 王丽   | 女   | 1976-01-23 00:00:00 | 95033 |
+| 109 | 王芳   | 女   | 1975-02-10 00:00:00 | 95031 |
++-----+--------+------+---------------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student where class='95031' 
+    -> union all
+    -> select * from student where ssex='女';
++-----+--------+------+---------------------+-------+
+| sno | sname  | ssex | sbirthday           | class |
++-----+--------+------+---------------------+-------+
+| 103 | 陆君   | 男   | 1974-06-03 00:00:00 | 95031 |
+| 105 | 匡明   | 男   | 1975-10-02 00:00:00 | 95031 |
+| 109 | 王芳   | 女   | 1975-02-10 00:00:00 | 95031 |
+| 107 | 王丽   | 女   | 1976-01-23 00:00:00 | 95033 |
+| 109 | 王芳   | 女   | 1975-02-10 00:00:00 | 95031 |
++-----+--------+------+---------------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student order by class desc;
++-----+--------+------+---------------------+-------+
+| sno | sname  | ssex | sbirthday           | class |
++-----+--------+------+---------------------+-------+
+| 101 | 李军   | 男   | 1976-02-20 00:00:00 | 95033 |
+| 107 | 王丽   | 女   | 1976-01-23 00:00:00 | 95033 |
+| 108 | 曾华   | 男   | 1977-09-01 00:00:00 | 95033 |
+| 103 | 陆君   | 男   | 1974-06-03 00:00:00 | 95031 |
+| 105 | 匡明   | 男   | 1975-10-02 00:00:00 | 95031 |
+| 109 | 王芳   | 女   | 1975-02-10 00:00:00 | 95031 |
++-----+--------+------+---------------------+-------+
+6 rows in set (0.01 sec)
+
+mysql> select * from grade order by cno ,degree desc;
++-----+-------+--------+
+| sno | cno   | degree |
++-----+-------+--------+
+| 103 | 3-105 |     92 |
+| 107 | 3-105 |     91 |
+| 105 | 3-105 |     88 |
+| 108 | 3-105 |     78 |
+| 109 | 3-105 |     76 |
+| 101 | 3-105 |     64 |
+| 103 | 3-245 |     86 |
+| 105 | 3-245 |     75 |
+| 109 | 3-245 |     68 |
+| 107 | 6-106 |     79 |
+| 101 | 6-166 |     85 |
+| 108 | 6-166 |     81 |
++-----+-------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select count(sno) from student where class='95031';
++------------+
+| count(sno) |
++------------+
+|          3 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select count(sno) num from student where class='95031';
++-----+
+| num |
++-----+
+|   3 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> select count(1) num from student where class='95031';
++-----+
+| num |
++-----+
+|   3 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> select sno,cno from grade order by degree desc limit 1;
++-----+-------+
+| sno | cno   |
++-----+-------+
+| 103 | 3-105 |
++-----+-------+
+1 row in set (0.00 sec)
+
+mysql> select max(degree) from grade;
++-------------+
+| max(degree) |
++-------------+
+|          92 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select sno,cno from grade where degree = (select max(degree) from grade);
++-----+-------+
+| sno | cno   |
++-----+-------+
+| 103 | 3-105 |
++-----+-------+
+1 row in set (0.00 sec)
+
+mysql> select avg(degree) from grade where cno='3-105';
++-------------+
+| avg(degree) |
++-------------+
+|        81.5 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(degree) from grade where cno like '3%';
++-------------------+
+| avg(degree)       |
++-------------------+
+| 79.77777777777777 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from grade where cno like '3%';
++-----+-------+--------+
+| sno | cno   | degree |
++-----+-------+--------+
+| 101 | 3-105 |     64 |
+| 103 | 3-105 |     92 |
+| 103 | 3-245 |     86 |
+| 105 | 3-105 |     88 |
+| 105 | 3-245 |     75 |
+| 107 | 3-105 |     91 |
+| 108 | 3-105 |     78 |
+| 109 | 3-105 |     76 |
+| 109 | 3-245 |     68 |
++-----+-------+--------+
+9 rows in set (0.00 sec)
+
+mysql> select * from grade where cno like '3%' order by cno;
++-----+-------+--------+
+| sno | cno   | degree |
++-----+-------+--------+
+| 101 | 3-105 |     64 |
+| 103 | 3-105 |     92 |
+| 105 | 3-105 |     88 |
+| 107 | 3-105 |     91 |
+| 108 | 3-105 |     78 |
+| 109 | 3-105 |     76 |
+| 103 | 3-245 |     86 |
+| 105 | 3-245 |     75 |
+| 109 | 3-245 |     68 |
++-----+-------+--------+
+9 rows in set (0.00 sec)
+
+mysql> select count(1) from grade where cno like '3%' group cno ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cno' at line 1
+mysql> select count(1) from grade where cno like '3%' group by cno ;
++----------+
+| count(1) |
++----------+
+|        6 |
+|        3 |
++----------+
+2 rows in set (0.01 sec)
+
+mysql> select count(1) num from grade where cno like '3%' group by cno having num >=5;
++-----+
+| num |
++-----+
+|   6 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> select cno, count(1) num from grade where cno like '3%' group by cno having num >=5;
++-------+-----+
+| cno   | num |
++-------+-----+
+| 3-105 |   6 |
++-------+-----+
+1 row in set (0.00 sec)
+
+mysql> select avg(degree) num from grade where cno like '3%' group by cno having num >=5;
++-------------------+
+| num               |
++-------------------+
+|              81.5 |
+| 76.33333333333333 |
++-------------------+
+2 rows in set (0.00 sec)
+
+mysql> select avg(degree)  from grade where cno like '3%' group by cno having count(1) >=5;
++-------------+
+| avg(degree) |
++-------------+
+|        81.5 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select sno from grade group by sno having max(degree) <90 and min(degree) >70;
++-----+
+| sno |
++-----+
+| 105 |
+| 108 |
++-----+
+2 rows in set (0.00 sec)
+
+mysql> select sno,max(degree),min(degree) from grade group by sno 
+    -> ;
++-----+-------------+-------------+
+| sno | max(degree) | min(degree) |
++-----+-------------+-------------+
+| 101 |          85 |          64 |
+| 103 |          92 |          86 |
+| 105 |          88 |          75 |
+| 107 |          91 |          79 |
+| 108 |          81 |          78 |
+| 109 |          76 |          68 |
++-----+-------------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> select sname,cno,degree from student s ,grade g where s.sno = g.sno;
++--------+-------+--------+
+| sname  | cno   | degree |
++--------+-------+--------+
+| 李军   | 3-105 |     64 |
+| 李军   | 6-166 |     85 |
+| 陆君   | 3-105 |     92 |
+| 陆君   | 3-245 |     86 |
+| 匡明   | 3-105 |     88 |
+| 匡明   | 3-245 |     75 |
+| 王丽   | 3-105 |     91 |
+| 王丽   | 6-106 |     79 |
+| 曾华   | 3-105 |     78 |
+| 曾华   | 6-166 |     81 |
+| 王芳   | 3-105 |     76 |
+| 王芳   | 3-245 |     68 |
++--------+-------+--------+
+12 rows in set (0.01 sec)
+
+mysql> select sno,cname,degree from course a join grade g on a.cno=g.cno;
++-----+-----------------+--------+
+| sno | cname           | degree |
++-----+-----------------+--------+
+| 101 | 计算机导论      |     64 |
+| 101 | 数据电路        |     85 |
+| 103 | 计算机导论      |     92 |
+| 103 | 操作系统        |     86 |
+| 105 | 计算机导论      |     88 |
+| 105 | 操作系统        |     75 |
+| 107 | 计算机导论      |     91 |
+| 108 | 计算机导论      |     78 |
+| 108 | 数据电路        |     81 |
+| 109 | 计算机导论      |     76 |
+| 109 | 操作系统        |     68 |
++-----+-----------------+--------+
+11 rows in set (0.00 sec)
+
+mysql> select sname,cname,degree from student s,course c,grade g where s.sno= g.sno and c.cno = g.cno;
++--------+-----------------+--------+
+| sname  | cname           | degree |
++--------+-----------------+--------+
+| 李军   | 计算机导论      |     64 |
+| 李军   | 数据电路        |     85 |
+| 陆君   | 计算机导论      |     92 |
+| 陆君   | 操作系统        |     86 |
+| 匡明   | 计算机导论      |     88 |
+| 匡明   | 操作系统        |     75 |
+| 王丽   | 计算机导论      |     91 |
+| 曾华   | 计算机导论      |     78 |
+| 曾华   | 数据电路        |     81 |
+| 王芳   | 计算机导论      |     76 |
+| 王芳   | 操作系统        |     68 |
++--------+-----------------+--------+
+11 rows in set (0.00 sec)
+
+mysql> select avg(degree) from grade where sno in (select sno from student where class='95033'); 
++-------------------+
+| avg(degree)       |
++-------------------+
+| 79.66666666666667 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select cno, avg(degree) from grade g,student s where s.sno = g.sno and class='95033';
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'homework.g.cno'; this is incompatible with sql_mode=only_full_group_by
+mysql> select sno,sname,class,cno,degree from grade g,student s where s.sno = g.sno and class='955033';
+ERROR 1052 (23000): Column 'sno' in field list is ambiguous
+mysql> select s.sno,sname,class,cno,degree from grade g,student s where s.sno = g.sno and class=''95033';
++-----+--------+-------+-------+--------+
+| sno | sname  | class | cno   | degree |
++-----+--------+-------+-------+--------+
+| 101 | 李军   | 95033 | 3-105 |     64 |
+| 101 | 李军   | 95033 | 6-166 |     85 |
+| 107 | 王丽   | 95033 | 3-105 |     91 |
+| 107 | 王丽   | 95033 | 6-106 |     79 |
+| 108 | 曾华   | 95033 | 3-105 |     78 |
+| 108 | 曾华   | 95033 | 6-166 |     81 |
++-----+--------+-------+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select cno,avg(degree) from grade g,student s where s.sno = g.sno and class='95033' group  by cno ;
++-------+-------------------+
+| cno   | avg(degree)       |
++-------+-------------------+
+| 3-105 | 77.66666666666667 |
+| 6-106 |                79 |
+| 6-166 |                83 |
++-------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from rank;
++------+-----+------+
+| down | up  | rank |
++------+-----+------+
+|   90 | 100 | A    |
+|   80 |  89 | B    |
+|   70 |  79 | C    |
+|   60 |  69 | D    |
+|    0 |  59 | E    |
++------+-----+------+
+5 rows in set (0.00 sec)
+
+mysql> select s.* from student s join grade g on s.sno = g.sno ;
++-----+--------+------+---------------------+-------+
+| sno | sname  | ssex | sbirthday           | class |
++-----+--------+------+---------------------+-------+
+| 101 | 李军   | 男   | 1976-02-20 00:00:00 | 95033 |
+| 101 | 李军   | 男   | 1976-02-20 00:00:00 | 95033 |
+| 103 | 陆君   | 男   | 1974-06-03 00:00:00 | 95031 |
+| 103 | 陆君   | 男   | 1974-06-03 00:00:00 | 95031 |
+| 105 | 匡明   | 男   | 1975-10-02 00:00:00 | 95031 |
+| 105 | 匡明   | 男   | 1975-10-02 00:00:00 | 95031 |
+| 107 | 王丽   | 女   | 1976-01-23 00:00:00 | 95033 |
+| 107 | 王丽   | 女   | 1976-01-23 00:00:00 | 95033 |
+| 108 | 曾华   | 男   | 1977-09-01 00:00:00 | 95033 |
+| 108 | 曾华   | 男   | 1977-09-01 00:00:00 | 95033 |
+| 109 | 王芳   | 女   | 1975-02-10 00:00:00 | 95031 |
+| 109 | 王芳   | 女   | 1975-02-10 00:00:00 | 95031 |
++-----+--------+------+---------------------+-------+
+12 rows in set (0.00 sec)
+
+mysql> select s.* from student s join grade g on s.sno = g.sno  where  degree > (select down from rank where rank='A') and degree <(select up from rank where rank='A');
++-----+--------+------+---------------------+-------+
+| sno | sname  | ssex | sbirthday           | class |
++-----+--------+------+---------------------+-------+
+| 103 | 陆君   | 男   | 1974-06-03 00:00:00 | 95031 |
+| 107 | 王丽   | 女   | 1976-01-23 00:00:00 | 95033 |
++-----+--------+------+---------------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select s.* from student s join grade g on s.sno = g.sno join rank r  degree > r.down and degree < r.up and r.rank='A';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'degree > r.down and degree < r.up and r.rank='A'' at line 1
+mysql> select s.* from student s join grade g on s.sno = g.sno join rank r on  degree > r.down annd degree < r.up and r.rank='A';
++-----+--------+------+---------------------+-------+
+| sno | sname  | ssex | sbirthday           | class |
++-----+--------+------+---------------------+-------+
+| 103 | 陆君   | 男   | 1974-06-03 00:00:00 | 95031 |
+| 107 | 王丽   | 女   | 1976-01-23 00:00:00 | 95033 |
++-----+--------+------+---------------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from grade where cno='3-105';
++-----+-------+--------+
+| sno | cno   | degree |
++-----+-------+--------+
+| 101 | 3-105 |     64 |
+| 103 | 3-105 |     92 |
+| 105 | 3-105 |     88 |
+| 107 | 3-105 |     91 |
+| 108 | 3-105 |     78 |
+| 109 | 3-105 |     76 |
++-----+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from grade where cno='3-105' and degree >(select degree from grade where sno='109' and cno='3-105');
++-----+-------+--------+
+| sno | cno   | degree |
++-----+-------+--------+
+| 103 | 3-105 |     92 |
+| 105 | 3-105 |     88 |
+| 107 | 3-105 |     91 |
+| 108 | 3-105 |     78 |
++-----+-------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from grade a join grade b on a.sno=b.sno and a.cno=b.cno;
++-----+-------+--------+-----+-------+--------+
+| sno | cno   | degree | sno | cno   | degree |
++-----+-------+--------+-----+-------+--------+
+| 101 | 3-105 |     64 | 101 | 3-105 |     64 |
+| 101 | 6-166 |     85 | 101 | 6-166 |     85 |
+| 103 | 3-105 |     92 | 103 | 3-105 |     92 |
+| 103 | 3-245 |     86 | 103 | 3-245 |     86 |
+| 105 | 3-105 |     88 | 105 | 3-105 |     88 |
+| 105 | 3-245 |     75 | 105 | 3-245 |     75 |
+| 107 | 3-105 |     91 | 107 | 3-105 |     91 |
+| 107 | 6-106 |     79 | 107 | 6-106 |     79 |
+| 108 | 3-105 |     78 | 108 | 3-105 |     78 |
+| 108 | 6-166 |     81 | 108 | 6-166 |     81 |
+| 109 | 3-105 |     76 | 109 | 3-105 |     76 |
+| 109 | 3-245 |     68 | 109 | 3-245 |     68 |
++-----+-------+--------+-----+-------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select * from grade a join grade b on a.sno=b.sno and a.cno=b.cno where a.cno = '3-105';
++-----+-------+--------+-----+-------+--------+
+| sno | cno   | degree | sno | cno   | degree |
++-----+-------+--------+-----+-------+--------+
+| 101 | 3-105 |     64 | 101 | 3-105 |     64 |
+| 103 | 3-105 |     92 | 103 | 3-105 |     92 |
+| 105 | 3-105 |     88 | 105 | 3-105 |     88 |
+| 107 | 3-105 |     91 | 107 | 3-105 |     91 |
+| 108 | 3-105 |     78 | 108 | 3-105 |     78 |
+| 109 | 3-105 |     76 | 109 | 3-105 |     76 |
++-----+-------+--------+-----+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from grade a,(select * from grade where cno='3-105' and sno='109') b where a.degree > b.degree;
++-----+-------+--------+-----+-------+--------+
+| sno | cno   | degree | sno | cno   | degree |
++-----+-------+--------+-----+-------+--------+
+| 101 | 6-166 |     85 | 109 | 3-105 |     76 |
+| 103 | 3-105 |     92 | 109 | 3-105 |     76 |
+| 103 | 3-245 |     86 | 109 | 3-105 |     76 |
+| 105 | 3-105 |     88 | 109 | 3-105 |     76 |
+| 107 | 3-105 |     91 | 109 | 3-105 |     76 |
+| 107 | 6-106 |     79 | 109 | 3-105 |     76 |
+| 108 | 3-105 |     78 | 109 | 3-105 |     76 |
+| 108 | 6-166 |     81 | 109 | 3-105 |     76 |
++-----+-------+--------+-----+-------+--------+
+8 rows in set (0.00 sec)
+
+mysql> select * from grade a,(select * from grade where cno='3-105' and sno='109') b where a.degree > b.degree and a.cno = b.cno;
++-----+-------+--------+-----+-------+--------+
+| sno | cno   | degree | sno | cno   | degree |
++-----+-------+--------+-----+-------+--------+
+| 103 | 3-105 |     92 | 109 | 3-105 |     76 |
+| 105 | 3-105 |     88 | 109 | 3-105 |     76 |
+| 107 | 3-105 |     91 | 109 | 3-105 |     76 |
+| 108 | 3-105 |     78 | 109 | 3-105 |     76 |
++-----+-------+--------+-----+-------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from grade a,(select * from grade where cno='3-105' and sno='109') b where a.degree > b.degree and a.cno = '3-105';
++-----+-------+--------+-----+-------+--------+
+| sno | cno   | degree | sno | cno   | degree |
++-----+-------+--------+-----+-------+--------+
+| 103 | 3-105 |     92 | 109 | 3-105 |     76 |
+| 105 | 3-105 |     88 | 109 | 3-105 |     76 |
+| 107 | 3-105 |     91 | 109 | 3-105 |     76 |
+| 108 | 3-105 |     78 | 109 | 3-105 |     76 |
++-----+-------+--------+-----+-------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from grade;
++-----+-------+--------+
+| sno | cno   | degree |
++-----+-------+--------+
+| 101 | 3-105 |     64 |
+| 101 | 6-166 |     85 |
+| 103 | 3-105 |     92 |
+| 103 | 3-245 |     86 |
+| 105 | 3-105 |     88 |
+| 105 | 3-245 |     75 |
+| 107 | 3-105 |     91 |
+| 107 | 6-106 |     79 |
+| 108 | 3-105 |     78 |
+| 108 | 6-166 |     81 |
+| 109 | 3-105 |     76 |
+| 109 | 3-245 |     68 |
++-----+-------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select sno,count(1) from grade group by sno;
++-----+----------+
+| sno | count(1) |
++-----+----------+
+| 101 |        2 |
+| 103 |        2 |
+| 105 |        2 |
+| 107 |        2 |
+| 108 |        2 |
+| 109 |        2 |
++-----+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from grade a where sno in (select sno from grade group by sno having count(1)>1)  and degree < (select max(degree) from grade b where b.sno = a.sno);
++-----+-------+--------+
+| sno | cno   | degree |
++-----+-------+--------+
+| 101 | 3-105 |     64 |
+| 103 | 3-245 |     86 |
+| 105 | 3-245 |     75 |
+| 107 | 6-106 |     79 |
+| 108 | 3-105 |     78 |
+| 109 | 3-245 |     68 |
++-----+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from grade a where a.degree < (select max(degree) from grade b group by sno having a.sno = b.sno and count(1)>1);
++-----+-------+--------+
+| sno | cno   | degree |
++-----+-------+--------+
+| 101 | 3-105 |     64 |
+| 103 | 3-245 |     86 |
+| 105 | 3-245 |     75 |
+| 107 | 6-106 |     79 |
+| 108 | 3-105 |     78 |
+| 109 | 3-245 |     68 |
++-----+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> 

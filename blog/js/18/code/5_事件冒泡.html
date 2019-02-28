@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡</title>
+	<style>
+		#d1{width:400px; height: 400px;padding: 50px;background: red}
+		#d11{width:300px; height: 300px;padding: 50px;background: yellow}
+		#d111{width:200px; height: 200px;padding: 50px;background: blue}
+	</style>
+</head>
+<body>
+	<div id='d1'>
+		<div id='d11'>
+			<div id='d111'></div>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+oD1 = document.getElementById('d1')
+oD11 = document.getElementById('d11')
+oD111 = document.getElementById('d111')
+// oD1.onclick = function(){
+// 	console.log('d1')
+// }
+// oD11.onclick = function(){
+// 	console.log('d11')
+// }
+// oD111.onclick = function(){
+// 	console.log('d111')
+// }
+// 
+// 事件捕获阶段处理
+// 第一个参数：事件名称
+// 第二个参数是事件处理函数
+// 第三个参数：true表示事件捕获阶段处理，false表示事件冒泡阶段处理
+// oD1.addEventListener('click',dosomething,true)
+// oD11.addEventListener('click',dosomething,true)
+// oD111.addEventListener('click',dosomething,true)
+
+
+//事件冒泡阶段
+oD1.addEventListener('click',dosomething,false)
+oD11.addEventListener('click',dosomething,false)
+oD111.addEventListener('click',dosomething,false)
+
+//函数参数是事件对象
+function dosomething(e){
+	//兼容写法
+	var ev = e||event
+	// console.log(ev)
+	//取消冒泡
+	// ev.cancelBubble = true
+	ev.stopPropagation()
+	console.log(this.id)
+}
+</script>

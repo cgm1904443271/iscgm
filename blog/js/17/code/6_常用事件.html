@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件</title>
+	<style>
+		div{
+			height: 200px;
+			width: 300px;
+			background: red;
+			
+		}
+	</style>
+</head>
+<script>
+	// 页面所有的资源被加载完毕后，自动触发window.onload
+	window.onload = function(){
+		// oDiv = document.getElementsByTagName('div')
+		// console.log(oDiv)
+	}
+</script>
+<body>
+	<input type="text" id='username'>
+	<div  style="position: absolute;top:60px;left:0;"></div>
+
+	
+</body>
+</html>
+<script>
+oInput = document.getElementById('username')
+oInput.onfocus = function(){
+	this.value=""
+}
+
+//失去焦点
+oInput.onblur = function(){
+	value = this.value;
+	if (value.length <5) {
+		// alert("len")
+		console.log('len')
+		this.focus()  //得到焦点
+
+	}
+}
+
+
+oDiv = document.getElementsByTagName('div')[0]
+console.log(oDiv)
+oDiv.onclick = function(){
+	console.log("click")
+}
+
+//双击
+oDiv.ondblclick = function(){
+	console.log("db click")
+}
+
+//鼠标移动到标签上
+oDiv.onmouseover = function(){
+	console.log("mouser over")
+}
+
+//鼠标移出标签
+oDiv.onmouseout = function(){
+	// console.log("mouser over")
+	this.style.background = "yellow"
+}
+
+//再标签上按下鼠标
+oDiv.onmousedown = function(){
+	// console.log("mouser over")
+	this.style.background = "pink"
+}
+//再标签上松开鼠标
+oDiv.onmouseup = function(){
+	// console.log("mouser over")
+	this.style.background = "red"
+}
+
+document.onmousemove = function(){
+	// top1 = parseInt(oDiv.style.top) + 1  // 10px
+	// console.log(top1)
+	// oDiv.style.top = '' + top1 + 'px'
+}
+
+
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var a=3,b=11;
+		console.log('a+b=',a + b)
+		console.log('a-b=',a - b)
+		console.log('a*b=',a * b)
+		console.log('a/b=',a / b)
+		console.log('b%a=',b % a)
+		console.log('10.1%a=',10.1 % a)
+		// 自增自减
+		// 自增 ++a  a++
+		// a++ 运算规律是 a先参与运算，运算完毕后a的值再曾1
+		// b = a++    // b=a a+=1
+		// console.log(a,b)
+		// 前置自增 ++a a先自增1，然后再参与运算
+		b = ++a
+		// ++a+++a+a++ 不要这么写
+		console.log(a,b)
+	</script>
+</body>
+</html>

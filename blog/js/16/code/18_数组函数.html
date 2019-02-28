@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+a = [1,2,3,4,5]
+//join讲数组元素拼接尾字符串
+res = a.join('-')
+// console.log(res,typeof res)
+
+//元素查找，找到返回下标，没有返回-1
+// console.log(a.indexOf(5),a.indexOf(6))
+
+//再数组末尾添加
+a.push(10)
+// console.log(a)
+//末尾删除
+// console.log(a.pop(),a)
+
+//数组翻转
+a.reverse()
+// console.log(a)
+
+//排序
+a = [11,2,5,9,3,20,13]
+function compare(a,b){
+	if (a>b){
+		return 1; //如果返回值大于0，则交换
+	} else {
+		return -1 // 返回值小于0，不交换
+	}
+}
+a.sort(compare)
+console.log(a)
+</script>

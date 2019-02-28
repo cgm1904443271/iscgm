@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类选择器</title>
+	<style>
+
+		/*正常情况超链接的颜色*/
+		a:link{
+			color: black;
+			font-size: 30px;
+		}
+		/*访问过后的颜色*/
+		a:visited{
+			color: red;
+			font-size: 50px;
+		}
+		/*鼠标悬停到超链接上的颜色*/
+		a:hover{
+			color: green;
+			font-size: 100px;
+		}
+		/*鼠标点击超级链接，不放手*/
+		a:active{
+			color:blue;
+		}
+		div{
+			height: 300px;
+			background: red;
+		}
+		div:hover{
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<a href="http://www.baidu.com">百度</a>
+	<div></div>
+	
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery-1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<button>get</button>
+<button>post</button>
+</body>
+</html>
+<script>
+    $('button').eq(0).click(function () {
+        $.get('/get',{'id':3},function (data) {
+            console.log(data)
+            $('body').append("<h2>"+data[0].name+"</h2>")
+        },'json')
+    })
+
+      $('button').eq(1).click(function () {
+        $.post('/get',{'id':3},function (data) {
+            console.log(data)
+            $('body').append("<h2>"+data[0].name+"</h2>")
+        },'json')
+    })
+</script>

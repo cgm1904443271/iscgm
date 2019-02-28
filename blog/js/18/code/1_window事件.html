@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{height: 2000px;width:2000px;}
+	</style>
+</head>
+<body>
+	<script>
+		//窗口的resize
+		window.onresize = function(){
+			// console.log('resize')
+			// console.log('inner',this.innerWidth,this.innerHeight)
+			// console.log('client',document.documentElement.clientWidth,document.documentElement.clientHeight)
+		}
+		// 窗口滚动触发scroll
+		window.onscroll = function(){
+			// console.log("scroll")
+			// 垂直滚动
+			console.log(document.body.scrollTop || document.documentElement.scrollTop)
+			// console.log(document.documentElement.scrollTop)
+			// 水平滚动
+			console.log(document.body.scrollLeft||document.documentElement.scrollLeft)
+		}
+	</script>
+</body>
+</html>

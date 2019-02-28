@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{height: 200px;background: red}
+	</style>
+</head>
+<body>
+	<div>
+		说点啥
+	</div>
+	<button>背景颜色</button>
+	<button>显示/消失</button>
+	<button>文字颜色</button>
+</body>
+</html>
+<script>
+	aButton = document.getElementsByTagName('button')
+	console.log(aButton)
+	oDiv = document.getElementsByTagName('div')[0]
+	aButton[0].onclick = function(){
+		oDiv.style.backgroundColor = "rgb(" + parseInt(Math.random()*255) +","+parseInt(Math.random()*255) +","+parseInt(Math.random()*255) +")"
+	}
+	aButton[1].onclick = function(){
+		if (oDiv.style.display == "none") {
+			oDiv.style.display = "block"
+		} else {
+			oDiv.style.display = "none"
+		}
+		
+	}
+		aButton[2].onclick = function(){
+		oDiv.style.color = "rgb(" + parseInt(Math.random()*255) +","+parseInt(Math.random()*255) +","+parseInt(Math.random()*255) +")"
+	}
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>查找标签</title>
+</head>
+<body>
+	<div id='d1'>
+		<input type="text"><span></span><br>
+		<input type="button" value='提交'>
+	</div>
+</body>
+</html>
+<script>
+oDiv = document.getElementById('d1')
+console.log(oDiv.children)  //所有的孩子
+oText = oDiv.firstElementChild  //第一个孩子
+oBtn = oDiv.lastElementChild  //最后一个孩子
+console.log(oDiv.firstElementChild.nextElementSibling.nextElementSibling)
+console.log(oBtn)
+oBtn.onclick = function(){
+	//获取用户输入的值
+	value = oText.value
+	if (value.length <=3){
+		oText.nextElementSibling.innerText = "用户名不能少于3位"
+		oText.nextElementSibling.style.color = 'red'
+	}
+}
+
+//兼容写法
+fc = oDiv.firstElementChild || oDiv.firstChild
+console.log(fc)
+</script>

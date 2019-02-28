@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>插入标签</title>
+	<style>
+		select{width":200px;}
+	</style>
+	<script src="jquery1.11.1/jquery.min.js"></script>
+</head>
+<body>
+	<select name="" id="s1" size=5>
+		<option value=""></option>
+		<option value="">河北</option>
+		<option value="">河南</option>
+		<option value="">山东</option>
+		<option value="">四川</option>
+	</select>
+	<button>&gt;&gt;</button>
+	<input type="button" value="append">
+	<select name="" id="s2" size=5>
+		<option value=""></option>
+	</select>
+</body>
+</html>
+<script>
+	$('button').click(function(){
+		console.log($("#s1 :selected").html())
+		$("#s1 :selected").appendTo("#s2")
+	})
+	$("input").click(function(){
+		$("#s2").append("<option>北京</option>")
+	})
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取元素</title>
+	<style>
+		p{height: 100px;background: red}
+		#parent div{height: 60px;margin-top: 10px;background: yellow}
+	</style>
+</head>
+<body>
+	<div id='parent'>
+		<p>hello</p>
+		<div class='c1'></div>
+		<div name='c2'></div>
+		<div class='c1'></div>
+	</div>
+</body>
+</html>
+<script>
+//1.getElementById
+oParent = document.getElementById('parent')
+console.log(oParent)
+//2 getElementsByTagName  返回一个伪数组
+aDiv = oParent.getElementsByTagName('div')
+for (var i = 0; i < aDiv.length; i++) {
+	aDiv[i].style.background = 'green'
+}
+
+//3 getElementsByClassName  返回一个伪数组
+aClassName = oParent.getElementsByClassName('c1')
+console.log(aClassName)
+
+// 4 getElementsByName返回一个伪数组
+aName = document.getElementsByName('c2')
+aName[0].style.border = "10px solid yellow"
+console.log(aName)
+</script>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head> 
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+ul { width:200px; margin:100px auto; }
+li { margin:10px; }
+</style>
+
+</head>
+
+<body>
+	<ul>
+		<li>
+			<span>花生----[未添加]</span>
+			<input type="button" value="添加" />
+			<!-- 点击添加，将[未添加]变成[已添加] 以下雷同-->
+		</li>
+		
+		<li>
+			<span>西瓜----[已添加]</span>
+			<input type="button" value="取消" />
+		</li>
+		
+		<li>
+			<span>芒果----[未添加]</span>
+			<input type="button" value="添加" />
+		</li>
+		
+		<li>
+			<span>黄瓜----[未添加]</span>
+			<input type="button" value="添加" />
+		</li>
+	</ul>
+</body>
+</html>
+<script>
+aSpan = document.getElementsByTagName('span')
+aInput = document.getElementsByTagName('input')
+for (var i = 0; i < aInput.length; i++) {
+	aInput[i].index = i
+	aInput[i].onclick = function(){
+		text = aSpan[this.index].innerText //获取span的文本
+		if (text.indexOf('已')>=0) {
+			text = text.replace('已','未')
+			this.value = "添加"
+		} else {
+			text = text.replace('未','已')
+			this.value = "取消"
+		}
+		aSpan[this.index].innerText = text
+	}
+}
+
+</script>
+
+
+
+
+
+
+
+
+

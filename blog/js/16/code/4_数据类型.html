@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据类型</title>
+</head>
+<body>
+	<script>
+		//1 数值型
+		a = 10  //整型
+		b = 10.2 //浮点
+		console.log(typeof(a),typeof b)
+
+		//2 布尔值
+		var bFlag = true  
+		var bisMan = false
+		console.log(typeof bFlag)
+
+		//3 字符串
+		var sName = 'tom'
+		var sSex = "男"
+		console.log(typeof sName)
+
+		//4 数组
+		var aStudent1 = []
+		var aStudent2 = [1,2,3,4]
+		console.log(aStudent2,typeof aStudent2)
+
+		// 5 函数
+		var pf = function(){
+			alert('ok')
+		}
+		console.log(typeof pf)
+
+		//6 对象
+		var oDog = new Object
+		oDog.name = '丁丁'
+		oDog.walk = function(){
+			alert('walk')
+		}
+		// oDog.walk()
+		console.log(typeof oDog)
+
+		//7 undefined
+		var c;
+		console.log(c)   //变量定义未赋值
+		console.log(oDog.age)  //引用对象不存在的属性
+		// console.log(pf())  //函数没有返回值，则默认返回undefined
+		console.log(undefined == undefined)
+		// 8 null
+		var d = null;
+		console.log(d,null == null)
+
+		//9 NaN  运算出错
+		var res = 5 / 'ok'
+		console.log(res)
+		console.log(NaN == NaN) // 自己和自己不等
+		console.log(isNaN(NaN))   //使用isNaN判断是否是NaN
+	</script>
+</body>
+</html>
