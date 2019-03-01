@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% include 'headview.html' %}
+
+<!-- WEB学习 注释 -->
+{# Django 模板注释 #}
+
+{# {{ var }}  变量(如果变量不存在，插入空的字符串) #}
+<p>
+    你的名字: {{ name }}
+</p>
+<p>
+    你的年龄: {{ age }}
+</p>
+<p>
+    你的身高: {{ height }}
+</p>
+<p>
+    你的成绩: {{ score }}
+</p>
+
+{# {% tag %} 标签 #}
+{% if username %}
+    <p> 用户名: {{ username }} </p>
+{% else %}
+    <p> 用户名: 未登录 </p>
+{% endif %}
+
+{% if username == 'root' %}
+    <p style="color: red"> 超级管理员 </p>
+{% elif username %}
+    <p> 用户名: {{ username }} </p>
+{% else %}
+    <p> 未登录(游客) </p>
+{% endif %}
+
+
+{% for item in score %}
+    <p> 成绩: {{ item }} </p>
+{% endfor %}
+
+<ul>
+    {% for dir in scoredir %}
+        <li>
+            {{ forloop.revcounter0 }} - {{ dir }}
+        </li>
+    {% endfor %}
+</ul>
+
+<ul>
+    {% for name in names %}
+        {% if forloop.counter|divisibleby:2 %}
+            <li style="color:red;"> {{ name }} </li>
+        {% else %}
+            <li style="color: blue;"> {{ name }} </li>
+        {% endif %}
+    {% empty %}
+        <li> 没有names属性值! </li>
+    {% endfor %}
+</ul>
+
+
+<p>
+    {{ name|lower }}
+</p>
+<p>
+    {{ name|upper }}
+</p>
+<p>
+    {{ name|join:'-' }}
+</p>
+<p>
+    {{ haha|default:'默认值测试' }}
+</p>
+
+
+{% include 'create_goods.html' %}
+{% include 'create_goods.html' %}
+{% include 'create_goods.html' %}
+
+
+</body>
+</html>

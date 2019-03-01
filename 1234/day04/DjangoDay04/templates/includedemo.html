@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>include标签测试</title>
+</head>
+
+<body>
+
+{% include 'headview.html' with titlename='购物车' %}
+
+
+{% for goods in goods_list %}
+    {% include 'create_goods.html' with goods=goods %}
+{% endfor %}
+
+
+
+</body>
+</html>

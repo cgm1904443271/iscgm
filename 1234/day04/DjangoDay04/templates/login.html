@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+</head>
+<body>
+
+<form action="{% url 'jd:login' %}" method="post">
+{#    {% csrf_token %}#}
+
+    <p>
+        用户名: <input type="text" placeholder="用户名">
+    </p>
+    <p>
+        验证码: <input type="text" placeholder="验证码">
+    </p>
+    <p id="random">
+        验证码: <img src="{% url 'jd:verifycode' %}" alt="">
+    </p>
+    <p>
+        <input type="submit" value="登录">
+    </p>
+</form>
+
+</body>
+
+<script>
+    var temp = document.getElementById('random')
+    console.log(temp)
+</script>
+
+</html>

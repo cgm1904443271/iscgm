@@ -1,0 +1,31 @@
+{% extends 'baseview.html' %}
+
+{# 填坑#}
+{% block title %}
+    首页home
+{% endblock %}
+
+{% block css %}
+    <style>
+        .header{
+            background: blue;
+        }
+    </style>
+{% endblock %}
+
+{% block footer_title %}
+    首页-底部测试
+{% endblock %}
+
+{% block header %}
+    首页
+{% endblock %}
+
+{% block content %}
+    <p>
+{#        {{ haha | safe }}#}
+        {% autoescape off %}
+            {{ haha }}
+        {% endautoescape %}
+    </p>
+{% endblock %}

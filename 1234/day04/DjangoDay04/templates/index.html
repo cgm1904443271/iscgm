@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+
+<p>
+{#    <a href="/mt/basedemo/">模板基础语法学习</a>#}
+    <a href="{% url 'jd:basedemo' %}">模板基础语法学习</a>
+</p>
+
+<p>
+    <a href="{% url 'jd:includedemo' %}"> include标签 </a>
+</p>
+<p>
+    <a href="{% url 'jd:home' %}">home页面</a>
+</p>
+<p>
+    <a href="{% url 'jd:cart' %}">cart页面</a>
+</p>
+<p>
+    <a href="{% url 'jd:mine' %}">mine我的</a>
+</p>
+<p>
+    <a href="{% url 'jd:loginview' %}">登录</a>
+</p>
+
+</body>
+</html>

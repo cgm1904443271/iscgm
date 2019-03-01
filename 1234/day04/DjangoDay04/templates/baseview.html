@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+{#        挖坑#}
+        {% block title %}
+            baseview
+        {% endblock %}
+    </title>
+    <style>
+        .header{
+            width: 100%;
+            background: red;
+            color: white;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 23px;
+            position: fixed;
+            top: 0;
+        }
+
+        .content{
+            padding: 50px 0;
+        }
+
+        .footer{
+            width: 100%;
+            background: red;
+            color: white;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 23px;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+
+<div class="header">
+    {% block header %}
+        标题
+    {% endblock %}
+</div>
+
+
+<div class="content">
+    {% block content %}
+    
+    {% endblock %}
+</div>
+
+
+{#<div class="footer">#}
+{#    {% block footer %}#}
+{#        底部通栏#}
+{#    {% endblock %}#}
+{#</div>#}
+
+{% block footer %}
+    <div class="footer">
+        {% block footer_title %}
+            底部通栏
+        {% endblock %}
+    </div>
+{% endblock %}
+
+</body>
+</html>
