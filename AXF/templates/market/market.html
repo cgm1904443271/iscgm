@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title%}
+    闪购超市
+{% endblock %}
+
+{% block extcss %}
+
+    <link rel="stylesheet" href="{% static 'market/css/swiper.css' %}">
+    <link rel="stylesheet" href="{% static 'market/css/market.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="market">
+        <div class="type-slider">
+            <ul>
+                {% for foodtype in foodtypes %}
+                        <li>
+                            <a href="#">{{ foodtype.typename }}</a>
+                        </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+
+        <nav>
+            <ul>
+                <li>
+                    <span>
+                        全部类型
+                        <i class="glyphicon glyphicon-chevron-up" aria-hidden="true"></i>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        综合排序
+                        <i class="glyphicon glyphicon-chevron-up" aria-hidden="true"></i>
+                    </span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}
+
+{% block extjs %}
+    <link rel="stylesheet" href="{% static 'market/js/swiper.js'%}">
+    <link rel="stylesheet" href="{% static 'market/js/market.js' %}">
+
+{% endblock %}
