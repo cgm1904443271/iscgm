@@ -17,7 +17,8 @@
             <ul>
                 {% for foodtype in foodtypes %}
                         <li>
-                            <a href="#">{{ foodtype.typename }}</a>
+                            <span></span>
+                            <a href="{% url 'axf:market' %} ">{{ foodtype.typename }}</a>
                         </li>
                 {% endfor %}
 
@@ -26,13 +27,13 @@
 
         <nav>
             <ul>
-                <li>
+                <li id="category-bt">
                     <span>
                         全部类型
                         <i class="glyphicon glyphicon-chevron-up" aria-hidden="true"></i>
                     </span>
                 </li>
-                <li>
+                <li id="sort-bt">
                     <span>
                         综合排序
                         <i class="glyphicon glyphicon-chevron-up" aria-hidden="true"></i>
@@ -40,12 +41,57 @@
                 </li>
             </ul>
         </nav>
+
+        <div class="main-content">
+            <div class="content-wrapper">
+                <ul>
+                    {% for good in goods_list %}
+                        <li>
+                            <a href="#">
+                                <img src="{{ good.productimg}}" class="goods-img">
+                                <div class="goods-info">
+                                    <p class="name">{{good.productlongname}}</p>
+                                    <p class="detailtag">
+                                        {% if good.isxf %}
+                                            <span class="xf">精选</span>
+                                        {% endif %}
+                                        <span>销量:{{ good.productnum }}</span>
+                                    </p>
+                                    <p class="specifics">{{ good.specifics }}</p>
+                                    <p class="price">
+                                        <span class="now-price">{{ good.price }}</span>
+                                        <span class="market-price">{{ good.marketprice }}</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="bounce-view  category-view">
+                <div class="bounce-wrapper ">
+                    {% for childtype in childtype_list %}
+                        <a href="{% url 'axf:marketson' childtype.id 0%}">{{childtype.name }}</a>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="bounce-view sort-view">
+                <div class="bounce-wrapper">
+                    <a href="{% url 'axf:marketson' childid '0'%}">综合排序</a>
+                    <a href="{% url 'axf:marketson' childid '1'%}">销量排序</a>
+                    <a href="{% url 'axf:marketson' childid '2'%}">价格最低</a>
+                    <a href="{% url 'axf:marketson' childid '3'%}">价格最高</a>
+                </div>
+        </div>
+
     </div>
 
 {% endblock %}
 
 {% block extjs %}
-    <link rel="stylesheet" href="{% static 'market/js/swiper.js'%}">
-    <link rel="stylesheet" href="{% static 'market/js/market.js' %}">
+
+    <script src="{% static 'market/js/market.js' %}"></script>
 
 {% endblock %}
