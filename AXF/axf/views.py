@@ -2,10 +2,11 @@ import hashlib
 import random
 import time
 
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from axf.models import Wheel, Nav, Mustbuy, Shop, MainShow, FoodFypes, Goods, User
+from axf.models import Wheel, Nav, Mustbuy, Shop, MainShow, FoodFypes, Goods, User, Cart
 
 
 def home(request):
@@ -126,8 +127,65 @@ def register(request):
         return response
 
 def login(request):
-    return None
+    if request.method=='GET':
+        return render(request,'mine/login.html')
+    elif request.method=='POST':
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+
+        users=User.objects.filter(username=username)
+        if users.exists:
+            user=users.first()
+            if user.password==password:
+                token=generate_token()
+                user.token=token
+                user.save()
+                request.session['token']=user.token
+                response=redirect('axf:mine')
+
+                return response
+
+            else:
+                return render(request,'mine/login.html',context={'ps_err':'密码错误'})
+        else:
+            return render(request,'mine/login.html',context={'user_err':'用户不存在'})
 
 
 def logout(request):
-    return None
+    request.session.flush()
+
+    return redirect('axf:mine')
+
+
+def checkusername(request):
+    username=request.GET.get('username')
+    users = User.objects.filter(username=username)
+    if users.exists():
+        response_data={
+            'status':0,
+            'msg':'账号已被注册',
+        }
+    else:
+        response_data={
+            'status':1,
+            'msg':'账号可用'
+        }
+
+
+    return JsonResponse(response_data)
+
+
+def addcart(request):
+    token = request.session.get('token')
+    response_data={}
+    print(token)
+
+    if token:
+        userid =''
+        print(userid,'1111')
+        if userid:
+            user = User.objects.get(pk=userid)
+            print(user)
+
+
+    return HttpResponse(123)
